@@ -1,0 +1,23 @@
+{
+    "tables": [
+        {
+            "table_name": "orders",
+            "entity_name": "Order",
+            "instance_name": "order",
+            "sub_namespace": "Orders",
+            "operation": "crud",
+            "columns": [
+                {
+                    "type": "integer",
+                    "name": "id",
+                    "validation_rules": "integer|required"
+                },
+                {
+                    "type": "string",
+                    "name": "notes",
+                    "validation_rules": "string|required"
+                }
+            ]
+        }
+    ]
+}
