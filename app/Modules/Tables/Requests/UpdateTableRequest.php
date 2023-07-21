@@ -11,7 +11,6 @@ class UpdateTableRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'id'				=> 'integer|required' ,
 			'name'				=> 'string|required' ,
 			'number'				=> 'integer|required' ,
 			'location'				=> 'string|required' ,
