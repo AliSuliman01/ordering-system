@@ -8,9 +8,12 @@ use App\Modules\Carts\DTO\CartDTO;
 class StoreCartAction
 {
     public static function execute(
-    CartDTO $cartDTO
+        CartDTO $cartDTO
     ){
+        $cart = new Cart(array_null_filter($cartDTO->toArray()));
+        $cart->price = $cart->product->price;
+        $cart->save();
 
-        return Cart::create(array_null_filter($cartDTO->toArray()));
+        return ;
     }
 }

@@ -11,11 +11,10 @@ class StoreCartRequest extends FormRequest
     public function rules(): array
     {
         return [
+			'order_id'				=> 'integer|required' ,
 			'product_id'				=> 'integer|required' ,
-			'notes'				=> 'string|required' ,
+			'notes'				=> 'string|nullable' ,
 			'amount'				=> 'integer|required' ,
-			'price'				=> 'numeric|required' ,
-
         ];
     }
 }
