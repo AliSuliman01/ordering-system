@@ -10,6 +10,6 @@ class GetAllTablesVM implements Arrayable
 {
     public function toArray()
     {
-        return Table::with(['active_order'])->get();
+        return Table::with(['active_order.carts.product'])->get();
     }
 }
