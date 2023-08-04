@@ -10,6 +10,6 @@ class GetAllTablesVM implements Arrayable
 {
     public function toArray()
     {
-        return Table::query()->get();
+        return Table::with(['active_order'])->get();
     }
 }
