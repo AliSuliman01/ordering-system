@@ -14,6 +14,8 @@ class ProductDTO extends DataTransferObject
 	/* @var string|null */
 	public $name;
 	/* @var string|null */
+	public $number;
+	/* @var string|null */
 	public $description;
 	/* @var string|null */
 	public $photo_path;
@@ -26,6 +28,7 @@ class ProductDTO extends DataTransferObject
         return new self([
 			'id'				=> $request['id'] ?? null ,
 			'name'				=> $request['name'] ?? null ,
+			'number'				=> $request['number'] ?? null ,
 			'description'				=> $request['description'] ?? null ,
 			'photo_path'				=> $request['photo_path'] ?? null ,
 			'category_id'				=> $request['category_id'] ?? null ,

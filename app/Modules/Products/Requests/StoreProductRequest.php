@@ -11,11 +11,11 @@ class StoreProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-			'name'				=> 'string|required' ,
-			'description'				=> 'string|required' ,
-			'photo_path'				=> 'string|required' ,
-			'category_id'				=> 'integer|required' ,
-
+            'name'				=> 'string|required_without:number' ,
+            'number'				=> 'string|required_without:name' ,
+            'description'				=> 'string|nullable' ,
+            'photo_path'				=> 'string|nullable' ,
+            'category_id'				=> 'integer|nullable' ,
         ];
     }
 }
