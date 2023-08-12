@@ -4,6 +4,8 @@
 namespace App\Modules\Products\Requests;
 
 
+use App\Enums\ProductTypeEnum;
+use BenSampo\Enum\Rules\Enum;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateProductRequest extends FormRequest
@@ -14,6 +16,7 @@ class UpdateProductRequest extends FormRequest
 			'name'				=> 'string|required_without:number' ,
 			'number'				=> 'string|required_without:name' ,
             'price'				=> 'required|numeric' ,
+            'type'				=> ['required', new Enum(ProductTypeEnum::class)] ,
             'description'				=> 'string|nullable' ,
 			'photo_path'				=> 'string|nullable' ,
 			'category_id'				=> 'integer|nullable' ,
