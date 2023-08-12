@@ -6,10 +6,10 @@ namespace App\Modules\Products\Requests;
 
 use App\Enums\ProductTypeEnum;
 use BenSampo\Enum\Rules\Enum;
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\ApiFormRequest;
 use Illuminate\Validation\Rule;
 
-class StoreProductRequest extends FormRequest
+class StoreProductRequest extends ApiFormRequest
 {
     public function rules(): array
     {

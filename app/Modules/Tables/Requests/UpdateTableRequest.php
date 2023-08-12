@@ -4,9 +4,9 @@
 namespace App\Modules\Tables\Requests;
 
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\ApiFormRequest;
 
-class UpdateTableRequest extends FormRequest
+class UpdateTableRequest extends ApiFormRequest
 {
     public function rules(): array
     {

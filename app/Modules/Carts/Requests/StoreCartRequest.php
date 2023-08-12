@@ -1,12 +1,10 @@
 <?php
 
-
 namespace App\Modules\Carts\Requests;
 
+use App\Http\Requests\ApiFormRequest;
 
-use Illuminate\Foundation\Http\FormRequest;
-
-class StoreCartRequest extends FormRequest
+class StoreCartRequest extends ApiFormRequest
 {
     public function rules(): array
     {

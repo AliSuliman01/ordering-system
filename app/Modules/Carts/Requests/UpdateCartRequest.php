@@ -4,9 +4,9 @@
 namespace App\Modules\Carts\Requests;
 
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\ApiFormRequest;
 
-class UpdateCartRequest extends FormRequest
+class UpdateCartRequest extends ApiFormRequest
 {
     public function rules(): array
     {

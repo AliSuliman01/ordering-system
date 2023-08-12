@@ -4,9 +4,9 @@
 namespace App\Modules\Categories\Requests;
 
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\ApiFormRequest;
 
-class UpdateCategoryRequest extends FormRequest
+class UpdateCategoryRequest extends ApiFormRequest
 {
     public function rules(): array
     {

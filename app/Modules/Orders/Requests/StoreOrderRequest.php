@@ -4,9 +4,9 @@
 namespace App\Modules\Orders\Requests;
 
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\ApiFormRequest;
 
-class StoreOrderRequest extends FormRequest
+class StoreOrderRequest extends ApiFormRequest
 {
     public function rules(): array
     {
