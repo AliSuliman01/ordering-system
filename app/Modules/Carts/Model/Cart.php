@@ -29,11 +29,6 @@ class Cart extends Model
         'deleted_by_user_id',
     ];
 
-    public function table()
-    {
-        return $this->belongsTo(Table::class);
-    }
-
     public function product()
     {
         return $this->belongsTo(Product::class);

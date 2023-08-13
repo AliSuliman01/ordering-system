@@ -2,6 +2,7 @@
 
 namespace App\Modules\Orders\Model;
 
+use App\Enums\OrderStatusEnum;
 use App\Modules\Carts\Model\Cart;
 use App\Modules\Products\Model\Product;
 use App\Modules\Tables\Model\Table;
@@ -12,11 +13,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Order extends Model
 {
     use HasFactory, SoftDeletes;
-
-    const ACTIVE = 'active';
-    const PAID = 'paid';
-    const EXPIRED = 'expired';
-    const CANCELED = 'canceled';
 
     protected $guarded = [
         'id',
@@ -34,15 +30,14 @@ class Order extends Model
         'deleted_by_user_id',
     ];
 
+    protected $casts = [
+        'status' => OrderStatusEnum::class
+    ];
+
 
     public function carts()
     {
         return $this->hasMany(Cart::class);
-    }
-
-    public function products()
-    {
-        return $this->hasMany(Product::class);
     }
 
     public function table()

@@ -2,6 +2,7 @@
 
 namespace App\Modules\Orders\Actions;
 
+use App\Enums\OrderStatusEnum;
 use App\Modules\Orders\Model\Order;
 use App\Modules\Orders\DTO\OrderDTO;
 
@@ -12,12 +13,12 @@ class StoreOrderAction
     ){
         Order::query()
             ->where('table_id', $orderDTO->table_id)
-            ->where('status', Order::ACTIVE)
+            ->where('status', OrderStatusEnum::ACTIVE())
             ->update([
-                'status' => Order::EXPIRED
+                'status' => OrderStatusEnum::EXPIRED()
             ]);
 
-        $orderDTO->status = Order::ACTIVE;
+        $orderDTO->status = OrderStatusEnum::ACTIVE();
         return Order::create(array_null_filter($orderDTO->toArray()));
     }
 }

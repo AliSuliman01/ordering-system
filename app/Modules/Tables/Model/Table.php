@@ -2,6 +2,7 @@
 
 namespace App\Modules\Tables\Model;
 
+use App\Enums\OrderStatusEnum;
 use App\Modules\Orders\Model\Order;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -34,6 +35,6 @@ class Table extends Model
 
     public function active_order()
     {
-        return $this->hasOne(Order::class)->where('status', '=', Order::ACTIVE);
+        return $this->hasOne(Order::class)->where('status', '=', OrderStatusEnum::ACTIVE());
     }
 }
