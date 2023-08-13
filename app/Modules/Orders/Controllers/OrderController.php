@@ -86,7 +86,7 @@ class OrderController extends Controller
             }
 
             foreach ($data['carts'] as &$cart) {
-               $product = (new GetProductByIdVM($cart->product_id))->toArray();
+               $product = (new GetProductByIdVM($cart['product_id']))->toArray();
                 $cart = [
                     'product_id' => $product->id,
                     'price' => $product->price,
