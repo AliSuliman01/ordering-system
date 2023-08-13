@@ -4,10 +4,13 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
+
 /**
  * @method static static MEAL()
  * @method static static DRINK()
  */
 final class ProductTypeEnum extends Enum
 {
+    const MEAL = 'meal';
+    const DRINK = 'drink';
 }

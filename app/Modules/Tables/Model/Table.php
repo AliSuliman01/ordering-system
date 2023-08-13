@@ -35,6 +35,7 @@ class Table extends Model
 
     public function active_order()
     {
-        return $this->hasOne(Order::class)->where('status', '=', OrderStatusEnum::ACTIVE());
+        return $this->hasOne(Order::class)
+            ->where('status', '=', OrderStatusEnum::ACTIVE());
     }
 }

@@ -4,6 +4,7 @@ namespace App\Enums;
 
 use BenSampo\Enum\Enum;
 
+
 /**
  * @method static static ACTIVE()
  * @method static static EXPIRED()
@@ -12,4 +13,8 @@ use BenSampo\Enum\Enum;
  */
 final class OrderStatusEnum extends Enum
 {
+    const ACTIVE = 'active';
+    const EXPIRED = 'expired';
+    const PAID = 'paid';
+    const CANCELED = 'canceled';
 }
