@@ -99,6 +99,6 @@ class OrderController extends Controller
 
         dispatch(new PrintCartsJob($order->id, $data['carts']));
 
-        return $order->load(['carts.product', 'table']);
+        return \response()->json(Response::success($order->load(['carts.product', 'table'])));
     }
 }
