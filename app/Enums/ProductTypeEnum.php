@@ -6,11 +6,11 @@ use BenSampo\Enum\Enum;
 
 
 /**
- * @method static static MEAL()
+ * @method static static FOOD()
  * @method static static DRINK()
  */
 final class ProductTypeEnum extends Enum
 {
-    const MEAL = 'meal';
+    const FOOD = 'food';
     const DRINK = 'drink';
 }
