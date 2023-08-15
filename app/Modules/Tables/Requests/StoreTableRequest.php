@@ -11,10 +11,10 @@ class StoreTableRequest extends ApiFormRequest
     public function rules(): array
     {
         return [
-			'name'				=> 'string|required' ,
+			'name'				=> 'string|nullable' ,
 			'number'				=> 'integer|required' ,
-			'location'				=> 'string|required' ,
-			'is_reserved'				=> 'boolean|required' ,
+			'location'				=> 'string|nullable' ,
+			'is_reserved'				=> 'boolean|nullable' ,
 
         ];
     }

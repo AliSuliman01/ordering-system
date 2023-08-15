@@ -11,10 +11,11 @@ class UpdateTableRequest extends ApiFormRequest
     public function rules(): array
     {
         return [
-			'name'				=> 'string|required' ,
-			'number'				=> 'integer|required' ,
-			'location'				=> 'string|required' ,
-			'is_reserved'				=> 'boolean|required' ,
+
+            'name'				=> 'string|nullable' ,
+            'number'				=> 'integer|required' ,
+            'location'				=> 'string|nullable' ,
+            'is_reserved'				=> 'boolean|nullable' ,
 
         ];
     }
