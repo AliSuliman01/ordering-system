@@ -10,6 +10,6 @@ class GetAllOrdersVM implements Arrayable
 {
     public function toArray()
     {
-        return Order::query()->get();
+        return Order::with(['carts.product'])->paginate();
     }
 }
