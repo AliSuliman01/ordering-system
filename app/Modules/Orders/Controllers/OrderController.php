@@ -33,7 +33,7 @@ class OrderController extends Controller
     public function index()
     {
 
-        return response()->json(Response::success((new GetAllOrdersVM())->toArray()));
+        return response()->json(Response::success((new GetAllOrdersVM(request()->perPage))->toArray()));
     }
 
     public function show(Order $order)
