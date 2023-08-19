@@ -6,9 +6,11 @@ use App\Enums\OrderStatusEnum;
 use App\Modules\Carts\Model\Cart;
 use App\Modules\Products\Model\Product;
 use App\Modules\Tables\Model\Table;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 
 class Order extends Model
 {
@@ -34,6 +36,15 @@ class Order extends Model
         'status' => OrderStatusEnum::class
     ];
 
+    public function scopeCreatedBefore(Builder $query, $date): Builder
+    {
+        return $query->where('created_at', '<=', Carbon::parse($date));
+    }
+
+    public function scopeCreatedAfter(Builder $query, $date): Builder
+    {
+        return $query->where('created_at', '>', Carbon::parse($date));
+    }
 
     public function carts()
     {
