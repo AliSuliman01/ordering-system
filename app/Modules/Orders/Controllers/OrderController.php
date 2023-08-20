@@ -31,7 +31,7 @@ class OrderController extends Controller
     {
 
         return response()->json(Response::success([
-            'orders' => (new GetAllOrdersVM(request()->perPage)->toArray(),
+            'orders' => (new GetAllOrdersVM(request()->perPage))->toArray(),
             'total' => (new GetOrdersTotalVM())->toArray()
         ]));
     }
