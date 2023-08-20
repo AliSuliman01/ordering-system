@@ -4,5 +4,6 @@
     "app/Modules/Products/Routes/products.php",
     "app/Modules/Carts/Routes/carts.php",
     "app/Modules/Orders/Routes/orders.php",
-    "app/Modules/Files/Routes/files.php"
+    "app/Modules/Files/Routes/files.php",
+    "app/Modules/Users/Routes/users.php"
 ]
