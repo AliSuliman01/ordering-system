@@ -15,6 +15,7 @@ use App\Modules\Orders\DTO\OrderDTO;
 use App\Modules\Orders\Requests\AddToOrderRequest;
 use App\Modules\Orders\Requests\StoreOrderRequest;
 use App\Modules\Orders\Requests\UpdateOrderRequest;
+use App\Modules\Orders\ViewModels\GetOrdersTotalVM;
 use App\Modules\Orders\ViewModels\GetOrderVM;
 use App\Modules\Orders\ViewModels\GetAllOrdersVM;
 use App\Modules\Orders\ViewModels\GetTableActiveOrderVM;
@@ -25,15 +26,14 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
-    public function __construct()
-    {
-//        $this->middleware('auth:api')->only(['store','update','destroy']);
-    }
 
     public function index()
     {
 
-        return response()->json(Response::success((new GetAllOrdersVM(request()->perPage))->toArray()));
+        return response()->json(Response::success([
+            'orders' => (new GetAllOrdersVM(request()->perPage)->toArray(),
+            'total' => (new GetOrdersTotalVM())->toArray()
+        ]));
     }
 
     public function show(Order $order)
