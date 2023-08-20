@@ -26,10 +26,8 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
-
     public function index()
     {
-
         return response()->json(Response::success([
             'orders' => (new GetAllOrdersVM(request()->perPage))->toArray(),
             'total' => (new GetOrdersTotalVM())->toArray()
@@ -77,7 +75,7 @@ class OrderController extends Controller
         $data = $request->validated();
         $order = (new GetTableActiveOrderVM($data['table_id']))->toArray();
 
-        DB::transaction(function () use ($data, $order) {
+        $order = DB::transaction(function () use ($data, $order) {
 
             if (!$order) {
                 $order = StoreOrderAction::execute(OrderDTO::fromRequest([
@@ -95,6 +93,8 @@ class OrderController extends Controller
                 ];
                 $order->carts()->create($cart);
             }
+
+            return $order;
         });
 
         dispatch(new PrintCartsJob($order->id, $data['carts']));
