@@ -20,7 +20,7 @@ class UserController
 
         if (Hash::check($data['password'], $user->password)){
             $token = $user->createToken('access-token');
-            $user->setAttribute('access_token', $token->accessToken->token);
+            $user->setAttribute('access_token', $token->plainTextToken);
             return response()->json(Response::success($user));
         }
 
