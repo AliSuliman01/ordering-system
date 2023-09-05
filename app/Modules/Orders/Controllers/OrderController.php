@@ -6,7 +6,6 @@ namespace App\Modules\Orders\Controllers;
 
 use App\Helpers\Response;
 use App\Http\Controllers\Controller;
-use App\Jobs\PrintCartsJob;
 use App\Modules\Orders\Model\Order;
 use App\Modules\Orders\Actions\StoreOrderAction;
 use App\Modules\Orders\Actions\DestroyOrderAction;
@@ -96,8 +95,6 @@ class OrderController extends Controller
 
             return $order;
         });
-
-        dispatch(new PrintCartsJob($order->id, $data['carts']));
 
         return \response()->json(Response::success($order->load(['carts.product', 'table'])));
     }
