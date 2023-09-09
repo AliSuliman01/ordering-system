@@ -14,6 +14,6 @@ class FileController
 
         $file_path = UploadFileAction::execute($data['file_path'], $data['file']);
 
-        return response()->json(Response::success($file_path));
+        return response()->json(Response::success(config('app.url') . $file_path));
     }
 }
